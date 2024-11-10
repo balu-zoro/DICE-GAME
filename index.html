@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <title>Dicee</title>
@@ -15,6 +15,10 @@
         text-align: center;
       }
 
+      .main_div{
+        display: flex;
+        justify-content: space-between;
+      }
       .dice {
         text-align: center;
         display: inline-block;
@@ -51,25 +55,54 @@
 
       }
 
+      .refresh-btn {
+        margin-top: 30px;
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: #4ECCA3;
+        color: #232931;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-family: 'Indie Flower', cursive;
+        transition: background-color 0.3s ease;
+      }
+
+      .refresh-btn:hover {
+        background-color: #EEEEEE;
+        color: #393E46;
+      }
+
     </style>
   </head>
   <body>
     <div class="container">
-      <h1>Refresh Me</h1>
+      <h1></h1>
 
-      <div class="dice">
-        <p>Player 1</p>
-        <img class="img1" src="./images/dice6.png" />
+      <div class="main_div">
+        <div class="dice">
+          <p>Player 1</p>
+          <img class="img1" src="./images/dice6.png" />
+        </div>
+        <div>
+          <button class="refresh-btn" onclick="refreshPage()">Refresh Page</button>
+        </div>
+        <div class="dice">
+          <p>Player 2</p>
+          <img class="img2" src="./images/dice6.png" />
+        </div>
       </div>
-
-      <div class="dice">
-        <p>Player 2</p>
-        <img class="img2" src="./images/dice6.png" />
-      </div>
+      
+      
+      
     </div>
   </body>
 
   <script>
+
+    function refreshPage(){
+      location.reload();
+    }
     var randomNumber1 = Math.floor(Math.random() * 6 + 1);
     var randomNumber2 = Math.floor(Math.random() * 6 + 1);
 
@@ -101,9 +134,9 @@
     if (randomNumber1 === randomNumber2) {
       document.querySelector("h1").innerHTML = "Draw";
     } else if (randomNumber1 > randomNumber2) {
-      document.querySelector("h1").innerHTML = "🚩Player 1 wins !";
+      document.querySelector("h1").innerHTML = "🚩Player 1 wins";
     }else{
-      document.querySelector("h1").innerHTML = "Player 2 wins !🚩";
+      document.querySelector("h1").innerHTML = "Player 2 wins🚩";
     }
   </script>
 </html>
